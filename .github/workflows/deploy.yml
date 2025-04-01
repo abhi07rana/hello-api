@@ -3,7 +3,7 @@ name: Deploy API to VM
 on:
   push:
     branches:
-      - main  # Trigger the workflow on push to the master branch
+      - main  # Trigger the workflow on push to the main branch
 
 jobs:
   deploy:
@@ -16,47 +16,38 @@ jobs:
       - name: Set up SSH
         uses: webfactory/ssh-agent@v0.5.3
         with:
-          ssh-private-key: ${{ -----BEGIN RSA PRIVATE KEY-----
-MIIG4wIBAAKCAYEAvCZziI5oibUYELBWfF5WhD134eMLHyNbWPmG7eoXnTNyJgoe
-thoA7C7hYmUOJZ+RvRZ1rxg4JS4VtJBcdwo7k5gE1lAoEoXWbTizswChPcgCAE9R
-St4/6DIZ/roDi4VKXLuGDB0bhobYIkkjJ4wjW5n60s68S2cKGQX3HrGBeDV7wLkS
-8Iqph7nXW7mQRpXDU5uRLL4cufHFyBw2som8yMdxIlumBb6EcSHc10myqrh3f66a
-jcFOuEcho+wg2H0x/PINM8pNWnkz5jgf9jx6He+9YHeiPW7UXkjsRucDD28OyFeb
-ApEMkWpTLKu+BUpS31CbaCDRhqeHdxElhZ32pw77FkTNNx85xLPO6sO/HwVJIO3Z
-FT216GuQ78mH/1Np7wGzLDL3ivojZMT3RII1gk1Y/5JBwQrrZrBvVGmgfZ/eFbW1
-GixpHquTJv6IdOFVx63hcrv7+kXHRVd+mVXIW4Grncv4Onphqtbkk5P447u/J5ix
-tYO9rOkGXhrFNm0tAgMBAAECggGATrMyvlr7BSb3wvtPocQAIl5nx9elbkfmzMfL
-FbdGW14KkDjJcdhcrG5LnlGw4jHlzxcW8L+LtJmbQKTl2HEyTGFZHJ/4sw7Ci3sd
-R3GrAGGp3KFQ2qUuTByw3OjH1NNTMIjL4ENIoTPEMksvZjprC8TTstwAzPVzttXU
-8UTEaBjPA+UmM/F8SiaFG3v6ClxYkJ9Q0UtQTsL/vN14T6PnkIBEJV/6iQqQ8ZV9
-f5v3HQv+CC1rvoGuQMyYGK4LayKqTwN3uw7ViRfxJC2dzOWrs5NhOSFO7IH4HDgd
-o22MTcGnFQspN3TJzxQ98kjUgwdRiT0KD/tFRUxU+88ezF4jwhqkMXokOjaFWaSx
-+bUDNlatZKu2bHBLpKX73XY8ALSTZ+ArnG/sPun60KMmFEKudthhVhjlIB0/FLLn
-K93FdCH+5ZNLcH/l71TRuRBraKKDwSDoKcTYByViJgiiikl/QZPuBeh5zsTBlDUr
-zG4oA2dVDCwm7nbyhCI9LBFnhPztAoHBAOz/6zuTxcpUinkqExio0xSrxxF9DL5b
-rtywt54GetValta2s00XSfXpqOWksIitqNS4hK+agkvAzo+MdVcEZ9fQ4CA1WNFK
-Rjftnyy7y92v+LVLbsAlRx5wK9T5tqhhsoiCJhiaSVpWLzTyYjwsNpny/5A+E8bv
-VAnzDu0SQHyqo9t5CDsucpNFwxnPoiplX+xGhP81/CDY/o2kkObEY7gp40Aph3qZ
-4/H8xozUODQX0mG5+lkX8iv2sxcUgBcVewKBwQDLO/dhaE7qYyddntFm0oFX2W3K
-pTp0rCxGZRP4KQyUm+1LxajYQxIW/KUGM2nA+Oy2ywv/9kvJxHTJe/qbPJv3JJIa
-NQR2Kt7yhKbJl6dk6hvvHxXTYAWgjMrt1gOlvPrnuIywICiyG/LRTn1khRMJbCgM
-NzpNzBIqc4vqHr4XZPuM8pBQwIxTIn1vBdLnR9Z7iVd6D3dMxZxDA8SIlyZlNhLt
-S6GR0qXjTGdIR1YPyaYVhtRS3mh+ps0IHTNBA3cCgcAX0gUXoNuhYWvlj7gJo3ZL
-vpQsitAMFfT2U4CxDl+sMAW3IPfWiL+zSr/iDPJ9Wk78ymrzp2jvKjrYrLpie5vg
-UisksZfyuS9jkauM+HceGgC6YBGKmHSUd5vANTUJqYAjPkmL8X3r6XunK7F58Muw
-H39WRRcByK4+rcJTS6FVpmT/uyN7p0h2yu04G+llr3i7q77UU926g3TaUa8KsrR/
-Hx6rJUFrrin9+XUPVIktmzNXBTVHXSPHDW2kpTfWmh8CgcBr6fCGYWud2354oK8S
-CO6zJfm9Y5SxhQaRbnR3DdznQBB1boQkKSD+4bICo+QgmkyfFxvNEwvVHCLjJZjB
-OyKZzWpizgoLcOInJjalzogM9p5Uj034igES6g+K0FvpcnpL9luF3d2eDWcWqrW8
-XUjpdOui6ORlkNmIfwgpDZ/kLjO/+MCWkFcygZrXC+Gb+zIxMJEpd/Lh6f/6OZLu
-8Etr7JWKOOGW26JIGjaxU2eoRGuS/J/bTMtxjMJL761adSsCgcEAiDFhtoXKmu3A
-VX8qGEKGnHJ6YCR4Mha7KfEL/vlopyDoA4/aOHCUyJAFbp5VhigfWFbSVmCIX2pk
-Obqdti3mLw5k5UMBhDu8VZmQE8c0Xt6cEVAaUkgplNXiUkfukFis/Ednl1jKU9LR
-l9E7YUp6HkLXTHn0eGOn5QoRu7hd+iOltK5QWgOh2XT7/6yi2lFvpRFT6TkXhtlK
-g0oUFESIR5roFSpg0w2hRp946nRwaOGwbnUXRtfE1JV2Pwy9Kf7+
------END RSA PRIVATE KEY-----
- }}
-      
+          ssh-private-key: |
+            -----BEGIN RSA PRIVATE KEY-----
+            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
+            -----END RSA PRIVATE KEY-----
+
       - name: Deploy to Virtual Machine
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.VM_USERNAME }}@${{ secrets.VM_HOST }} << 'EOF'
