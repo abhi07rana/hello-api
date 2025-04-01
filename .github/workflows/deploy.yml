@@ -3,7 +3,7 @@ name: Deploy API to VM
 on:
   push:
     branches:
-      - master  # Trigger the workflow on push to the master branch
+      - main  # Trigger the workflow on push to the master branch
 
 jobs:
   deploy:
